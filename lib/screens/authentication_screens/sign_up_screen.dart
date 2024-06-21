@@ -1,10 +1,9 @@
-import 'package:ecohub/widgets/input_text_widget.dart';
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../widgets/button.dart';
+import 'package:ecohub/widgets/input_text_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:ecohub/widgets/dialogs/show_success_dialog.dart';
-import 'package:ecohub/widgets/dialogs/show_error_dialog.dart';
+import 'package:flutter/material.dart';
+
+import '../../widgets/button.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -22,7 +21,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Future<void> _signUp() async {
     try {
       // Create user with email and password
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text,
       );
@@ -45,14 +45,52 @@ class _SignUpScreenState extends State<SignUpScreen> {
       } else if (e.code == 'email-already-in-use') {
         message = 'An account already exists for that email.';
       } else {
-        message = 'An error occurred. Please try again.';
+        message = 'Error: ${e.message}';
       }
       _showErrorDialog(message);
     } catch (e) {
-      _showErrorDialog('An error occurred. Please try again.');
+      _showErrorDialog('Error: $e');
     }
   }
 
+  void _showSuccessDialog() {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('Success'),
+        content: Text('Your account has been created successfully!'),
+        actions: <Widget>[
+          TextButton(
+            child: Text('Okay'),
+            onPressed: () {
+              Navigator.of(ctx).popUntil((route) => route
+                  .isFirst); // Pop all dialogs including the success dialog
+              Navigator.pushReplacementNamed(
+                  ctx, '/home'); // Replace current screen with the Home screen
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('An Error Occurred'),
+        content: Text(message),
+        actions: <Widget>[
+          TextButton(
+            child: Text('Okay'),
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+          )
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +146,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       InputTextWidget('Passsword', true, _passwordController),
                 ),
                 SizedBox(height: 70),
-                Button(text: 'Register', onPressed: () {
-
-                  Navigator.push(context,builder:(context)=>HomeScreen())}),
+                Button(
+                  text: 'Register',
+                  onPressed: () {
+                    _signUp();
+                  },
+                )
               ],
             ),
           ),
