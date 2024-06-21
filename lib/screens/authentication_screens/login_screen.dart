@@ -1,11 +1,10 @@
 import 'package:ecohub/screens/authentication_screens/forgot_password_screen.dart';
 import 'package:ecohub/screens/authentication_screens/sign_up_screen.dart';
+import 'package:ecohub/screens/home_screen.dart';
 import 'package:ecohub/widgets/button.dart';
 import 'package:ecohub/widgets/input_text_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -108,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     _signInWithEmailAndPassword();
                   }),
-              const SizedBox(height: 32),
+              const SizedBox(height: 22),
               InkWell(
                 onTap: () {
                   Navigator.push(context,

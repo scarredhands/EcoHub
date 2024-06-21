@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,8 @@ class ForgotPasswordScreen extends StatefulWidget {
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final TextEditingController _emailController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   bool _isLoading = false;
 
   Future<void> _resetPassword() async {
@@ -16,13 +19,31 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       _isLoading = true;
     });
 
+    String email = _emailController.text.trim();
+
     try {
-      await _auth.sendPasswordResetEmail(email: _emailController.text.trim());
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Password reset email sent. Check your inbox.')),
-      );
-      Navigator.of(context).pop(); // Go back to login screen
+      // Check if the email exists in the Firestore users collection
+      final querySnapshot = await _firestore
+          .collection('users') // Assuming you have a 'users' collection
+          .where('email', isEqualTo: email)
+          .get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        // Email exists, send the password reset email
+        await _auth.sendPasswordResetEmail(email: email);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+              content: Text('Password reset email sent. Check your inbox.')),
+        );
+        Navigator.of(context).pop(); // Go back to login screen
+      } else {
+        // Email does not exist in Firestore
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('No account found with this email.')),
+        );
+      }
     } on FirebaseAuthException catch (e) {
+      // Handle Firebase authentication errors
       String message;
       if (e.code == 'user-not-found') {
         message = 'No user found with this email.';
@@ -33,6 +54,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         SnackBar(content: Text(message)),
       );
     } catch (e) {
+      // Handle other errors
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('An error occurred. Please try again later.')),
       );
