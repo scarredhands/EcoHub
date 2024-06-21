@@ -1,7 +1,11 @@
+import 'package:ecohub/screens/authentication_screens/forgot_password_screen.dart';
 import 'package:ecohub/screens/authentication_screens/sign_up_screen.dart';
 import 'package:ecohub/widgets/button.dart';
 import 'package:ecohub/widgets/input_text_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,6 +18,43 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _emailTextController = TextEditingController();
 
   TextEditingController _passwordTextController = TextEditingController();
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> _signInWithEmailAndPassword() async {
+    try {
+      final UserCredential userCredential =
+          await _auth.signInWithEmailAndPassword(
+        email: _emailTextController.text.trim(),
+        password: _passwordTextController.text.trim(),
+      );
+      // Navigate to the next screen after successful login
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+    } catch (e) {
+      _showErrorDialog('Error: $e');
+      // Handle errors such as invalid email/password, user not found, etc.
+      // Example: Show a snackbar or alert dialog with an error message
+    }
+  }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('An Error Occurred'),
+        content: Text(message),
+        actions: <Widget>[
+          TextButton(
+            child: Text('Okay'),
+            onPressed: () {
+              Navigator.of(ctx).pop();
+            },
+          )
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,28 +89,36 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ForgotPasswordScreen()));
+                    },
                     child: Padding(
                       padding: EdgeInsets.only(left: 16),
                       child: Text('Forget Password?'),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpScreen()));
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 16),
-                      child: Text('Register Now'),
-                    ),
-                  ),
                 ],
               ),
               const SizedBox(height: 32),
-              Button(text: 'Login', onPressed: () {})
+              Button(
+                  text: 'Login',
+                  onPressed: () {
+                    _signInWithEmailAndPassword();
+                  }),
+              const SizedBox(height: 32),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignUpScreen()));
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(right: 16),
+                  child: Text("Don't have an account? Register Now"),
+                ),
+              ),
             ])))));
   }
 }
