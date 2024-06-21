@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:ecohub/screens/settings_screen.dart';
 import 'package:ecohub/widgets/button.dart';
 import 'package:ecohub/widgets/input_text_widget.dart';
@@ -32,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _emailController.text = prefs.getString('email') ?? '';
       _phoneController.text = prefs.getString('phone') ?? '';
       _passwordController.text = prefs.getString('password') ?? '';
-       _bioController.text = prefs.getString('bio') ?? '';
+      _bioController.text = prefs.getString('bio') ?? '';
       String? imagePath = prefs.getString('profileImage');
       if (imagePath != null && imagePath.isNotEmpty) {
         _profileImage = File(imagePath);
@@ -70,7 +71,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsScreen(),));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SettingsScreen(),
+                  ));
             },
           ),
         ],
@@ -85,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   CircleAvatar(
                     radius: 50,
                     backgroundImage: _profileImage == null
-                        ? AssetImage('assets/profile_picture.jpg')
+                        ? AssetImage('assets/user_photo.jpeg')
                         : FileImage(_profileImage!) as ImageProvider,
                   ),
                   Positioned(
@@ -124,7 +129,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              
               Padding(
                 padding: const EdgeInsets.all(7.0),
                 child: InputTextWidget('Name', false, _nameController),
