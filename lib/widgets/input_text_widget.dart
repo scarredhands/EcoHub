@@ -7,11 +7,11 @@ TextField InputTextWidget(
     obscureText: isPasswordType,
     enableSuggestions: !isPasswordType,
     autocorrect: !isPasswordType,
-    cursorColor: Colors.white,
+    cursorColor: Colors.grey,
     style: TextStyle(color: Colors.black.withOpacity(0.9)),
     decoration: InputDecoration(
       labelText: text,
-      labelStyle: TextStyle(color: Colors.white.withOpacity(0.9)),
+      labelStyle: TextStyle(color: Colors.grey.withOpacity(1)),
       filled: true,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.grey.shade300,
