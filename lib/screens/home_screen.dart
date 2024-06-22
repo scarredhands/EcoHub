@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'tempo.dart';
 
 void main() {
-  runApp(NewsScreen());
+  runApp(SplashScreen());
 }
 
 class HomeScreen extends StatelessWidget {
