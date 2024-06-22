@@ -7,6 +7,11 @@ class Advisory {
   static List<Advisory> getAdvisories() {
     return [
       Advisory(
+        headline: 'DIY Weed Killers in Your Kitchen',
+        content:
+            "Tired of battling weeds with harsh chemicals? Look no further than your pantry! Here's how to whip up natural weed killers using common household items: Vinegar Power:  Mix equal parts white vinegar and water in a spray bottle. Spray directly on weeds for a quick wilt best on a sunny day.Boiling Water Blast: For a fast and easy solution, pour boiling water directly onto young weeds. This works best on patios or driveways, not ideal for flower beds.Salty Solution: Combine a gallon of water with 1 cup of salt and a tablespoon of dish soap. This mixture dehydrates weeds, but be cautious, it can harm surrounding plants too.",
+      ),
+      Advisory(
         headline: 'Soil Health Management',
         content:
             'Regular soil testing and the use of organic fertilizers can improve soil health and crop yield.',
@@ -25,11 +30,6 @@ class Advisory {
         headline: 'Pest Management',
         content:
             'Use integrated pest management (IPM) techniques to control pests while minimizing environmental impact.',
-      ),
-      Advisory(
-        headline: 'DIY Weed Killers in Your Kitchen',
-        content:
-            "Tired of battling weeds with harsh chemicals? Look no further than your pantry! Here's how to whip up natural weed killers using common household items: Vinegar Power:  Mix equal parts white vinegar and water in a spray bottle. Spray directly on weeds for a quick wilt best on a sunny day.Boiling Water Blast: For a fast and easy solution, pour boiling water directly onto young weeds. This works best on patios or driveways, not ideal for flower beds.Salty Solution: Combine a gallon of water with 1 cup of salt and a tablespoon of dish soap. This mixture dehydrates weeds, but be cautious, it can harm surrounding plants too.",
       ),
       Advisory(
         headline: 'Free Seed Trays',
