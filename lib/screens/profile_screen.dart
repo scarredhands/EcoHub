@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:ecohub/screens/authentication_screens/login_screen.dart';
 import 'package:ecohub/screens/settings_screen.dart';
 import 'package:ecohub/widgets/button.dart';
 import 'package:ecohub/widgets/input_text_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -60,6 +62,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
       setState(() {
         _profileImage = File(pickedFile.path);
       });
+    }
+  }
+
+  Future<void> _logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      // Clear local storage data
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.clear();
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  LoginScreen())); // Navigate to login screen or desired route
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Logout failed. Please try again.')),
+      );
     }
   }
 
@@ -155,7 +175,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ));
                   }),
               SizedBox(height: 13),
-              Button(text: 'Logout', onPressed: () {})
+              Button(
+                  text: 'Logout',
+                  onPressed: () {
+                    _logout();
+                  })
             ],
           ),
         ),

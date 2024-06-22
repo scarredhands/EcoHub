@@ -10,6 +10,7 @@ class Button extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
+        width: 120,
         padding: EdgeInsets.all(15),
         margin: EdgeInsets.symmetric(horizontal: 5),
         decoration: BoxDecoration(
