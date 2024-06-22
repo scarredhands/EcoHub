@@ -4,7 +4,6 @@ import 'splash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'tempo.dart';
 
 void main() {
   runApp(SplashScreen());
@@ -116,11 +115,7 @@ class Home extends StatelessWidget {
                         children: [
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Second()),
-                              );
+                              
                             },
                             child: Container(
                               height: 120,
@@ -175,11 +170,7 @@ class Home extends StatelessWidget {
                         children: [
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Second()),
-                              );
+                              
                             },
                             child: Container(
                               height: 120,
@@ -234,11 +225,7 @@ class Home extends StatelessWidget {
                         children: [
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Second()),
-                              );
+                              
                             },
                             child: Container(
                               height: 120,
@@ -293,11 +280,7 @@ class Home extends StatelessWidget {
                         children: [
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Second()),
-                              );
+                            
                             },
                             child: Container(
                               height: 120,
