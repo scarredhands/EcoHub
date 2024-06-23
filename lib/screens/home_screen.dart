@@ -1,12 +1,9 @@
-import 'package:ecohub/news.dart';
-
-import 'splash.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:ecohub/screens/feature_screens/advisory_screen/advisory_screen.dart';
+import 'package:ecohub/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +31,10 @@ class Home extends StatelessWidget {
           )
         ],
         leading: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()));
+          },
           child: Container(
             height: 50,
             width: 50,
@@ -98,9 +98,7 @@ class Home extends StatelessWidget {
                       child: Column(
                         children: [
                           TextButton(
-                            onPressed: () {
-                              
-                            },
+                            onPressed: () {},
                             child: Container(
                               height: 120,
                               width: 120,
@@ -154,7 +152,10 @@ class Home extends StatelessWidget {
                         children: [
                           TextButton(
                             onPressed: () {
-                              
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AdvisoryScreen()));
                             },
                             child: Container(
                               height: 120,
@@ -208,9 +209,7 @@ class Home extends StatelessWidget {
                       child: Column(
                         children: [
                           TextButton(
-                            onPressed: () {
-                              
-                            },
+                            onPressed: () {},
                             child: Container(
                               height: 120,
                               width: 120,
@@ -263,9 +262,7 @@ class Home extends StatelessWidget {
                       child: Column(
                         children: [
                           TextButton(
-                            onPressed: () {
-                            
-                            },
+                            onPressed: () {},
                             child: Container(
                               height: 120,
                               width: 120,
@@ -321,4 +318,3 @@ class Home extends StatelessWidget {
     );
   }
 }
-
