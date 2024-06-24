@@ -109,7 +109,7 @@ class _TfliteModelState extends State<TfliteModel> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 249, 249),
       appBar: AppBar(
-        title: Text('Image Classifier'),
+        title: Text('Plant disease detection'),
       ),
       body: Center(
         child: Column(
@@ -128,6 +128,12 @@ class _TfliteModelState extends State<TfliteModel> {
                       SizedBox(
                         height: 18,
                       ),
+                      Text(
+                        'Upload image of plant leaf',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      SizedBox(height: 10),
                       Container(
                         height: 300,
                         width: 300,
@@ -158,7 +164,7 @@ class _TfliteModelState extends State<TfliteModel> {
                         child: Column(
                           children: [
                             Text(
-                              'image is ${label}',
+                              'plant disease is ${label}',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),

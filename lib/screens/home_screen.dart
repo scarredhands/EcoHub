@@ -142,7 +142,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 8),
                           const Text(
-                            'Disease Detection',
+                            'Detect Plant disease',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
