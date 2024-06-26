@@ -1,3 +1,4 @@
+import 'package:ecohub/onboarding_screen.dart';
 import 'package:ecohub/screens/home_screen.dart';
 import 'package:ecohub/services/auth_wrapper.dart';
 import 'package:ecohub/splash_screen.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      home: OnBoardingScreen(),
       routes: {
         '/home': (context) => HomeScreen(),
       },
