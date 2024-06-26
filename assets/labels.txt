@@ -1,0 +1,38 @@
+ Apple Scab
+ Apple black rot
+ Cedar Apple Rust
+ Apple healthy
+ Blueberry healthy
+ cherry healthy
+ cherry powdery mild_dew
+ Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot
+ Corn_(maize)___Common_rust
+ corn(maize)_healthy
+ Corn_(maize)___Northern_Leaf_Blight
+ grape black rot
+ grape esca (black Measles)
+ grape healthy
+ grape leaf blight (Isariopis leaf spot)
+ Orange___Haunglongbing_(Citrus_greening)
+ peach bacterial spot
+ peach healthy
+ pepper, bell bacterial spot
+ pepper, bell healthy
+ potato early blight
+ potato healthy
+ potato late blight
+ raspberry healthy
+ soybean healthy
+ squash powdery mid_dew
+ strawberry healthy
+ strawberry leaf scorch
+ tomato bacterial spot
+ tomato early blight
+ tomato healthy
+ tomato late blight
+ tomato leaf mold
+ tomato septoria leaf spot
+ tomato spider mites/ two spotted spider mites
+ tomato target spot
+ tomato mosaic virus
+ tomato yellow leaf curl virus

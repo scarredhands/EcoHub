@@ -1,4 +1,5 @@
 import 'package:ecohub/screens/feature_screens/advisory_screen/advisory_screen.dart';
+import 'package:ecohub/screens/feature_screens/plant_disease_detection_screen/tflite_model.dart';
 import 'package:ecohub/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -98,7 +99,12 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TfliteModel()));
+                            },
                             child: Container(
                               height: 120,
                               width: 120,
@@ -136,7 +142,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 8),
                           const Text(
-                            'Disease Detection',
+                            'Detect Plant disease',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
