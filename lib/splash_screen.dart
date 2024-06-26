@@ -1,4 +1,5 @@
 import 'package:ecohub/screens/authentication_screens/login_screen.dart';
+import 'package:ecohub/services/auth_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'dart:async';
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => const LoginScreen(),
+          builder: (context) => AuthWrapper(),
         ),
       );
     });
@@ -31,16 +32,6 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // const Text(
-            //   'WELCOME   TO',
-            //   style: TextStyle(
-            //     color: Colors.white,
-            //     fontSize: 18,
-            //     fontWeight: FontWeight.w500,
-            //     fontStyle: FontStyle.italic,
-            //   ),
-            // ),
-            // const SizedBox(height: 10),
             const Text(
               'E C O  H U B',
               style: TextStyle(
