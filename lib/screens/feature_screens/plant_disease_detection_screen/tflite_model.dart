@@ -216,7 +216,7 @@ class _TfliteModelState extends State<TfliteModel> {
               child: Text('take from gallery'),
             ),
             SizedBox(
-              height: 50,
+              height: 20,
             ),
             Text(
               'NOTE- If the accuracy is less than 70% ,the prediction might be wrong',
