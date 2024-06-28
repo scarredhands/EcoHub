@@ -1,5 +1,6 @@
 import 'package:ecohub/screens/feature_screens/advisory_screen/advisory_screen.dart';
 import 'package:ecohub/screens/feature_screens/plant_disease_detection_screen/tflite_model.dart';
+import 'package:ecohub/screens/news_screen/news_screen.dart';
 import 'package:ecohub/screens/feature_screens/weather_updates_screen/weather_page.dart';
 import 'package:ecohub/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -274,7 +275,12 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => NewsScreen()));
+                            },
                             child: Container(
                               height: 120,
                               width: 120,
