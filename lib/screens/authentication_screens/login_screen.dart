@@ -62,21 +62,23 @@ class _LoginScreenState extends State<LoginScreen> {
             backgroundColor: const Color.fromARGB(255, 255, 249, 249),
             appBar: AppBar(
               backgroundColor: const Color.fromARGB(255, 255, 249, 249),
-              title: const Center(
-                  child: Text(
+              title: Text(
                 "I have an account",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
-              )),
+              )
             ),
             body: SingleChildScrollView(
                 child: Center(
                     child: Column(children: [
               Padding(
-                  padding: EdgeInsets.all(15),
-                  child: Image.asset('assets/EcoHubLogo.jpg')),
+                  padding: EdgeInsets.only(left: 5, right: 50),
+                  child: Image.asset('assets/EcoHubLogo.jpg',
+                  height: 300,
+                  width: 400,
+                  )),
               Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: InputTextWidget('Email', false, _emailTextController)),

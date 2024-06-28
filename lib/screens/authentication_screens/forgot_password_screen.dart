@@ -68,7 +68,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Forgot Password')),
+      backgroundColor: const Color.fromARGB(255, 255, 249, 249),
+      appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 255, 249, 249),
+          title: Text(
+            "Forget Password",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          )),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -78,16 +87,42 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               controller: _emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
-                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Colors.grey)),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(color: Colors.black)),
+                fillColor: const Color.fromARGB(255, 239, 226, 226),
+                filled: true,
               ),
               keyboardType: TextInputType.emailAddress,
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _isLoading ? null : _resetPassword,
-              child: _isLoading
-                  ? CircularProgressIndicator(color: Colors.white)
-                  : Text('Reset Password'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 42,
+                margin: EdgeInsets.only(left: 15, right: 15),
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateColor.transparent,
+                  ),
+                  onPressed: _isLoading ? null : _resetPassword,
+                  child: _isLoading
+                      ? CircularProgressIndicator(color: Colors.white)
+                      : Text(
+                          'Reset Password',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                ),
+              ),
             ),
           ],
         ),

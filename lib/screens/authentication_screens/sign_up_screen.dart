@@ -95,9 +95,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: Color.fromARGB(255, 255, 249, 249),
         appBar: AppBar(
-          backgroundColor: Colors.grey.shade300,
+          backgroundColor: Color.fromARGB(255, 255, 249, 249),
           title: Text(
             "Sign Up",
             textAlign: TextAlign.right,
@@ -116,27 +116,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     padding: const EdgeInsets.all(15.0),
                     child: InputTextWidget(
                         'First Name', false, _firstNameController)),
+                // Padding(
+                //     padding: const EdgeInsets.all(15.0),
+                //     child: InputTextWidget(
+                //         'Last Name', false, _lastNameController)),
+
                 Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: InputTextWidget(
-                        'Last Name', false, _lastNameController)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 18,
-                    ),
-                    Expanded(
-                      child: Text(
-                        "Make sure it matches the name on your Government ID",
-                        style: TextStyle(
-                          fontSize: 19,
-                        ),
+                  padding: const EdgeInsets.all(15.0),
+                  child: TextField(
+                    controller: _lastNameController,
+                    decoration: InputDecoration(
+                      helperText: 'Name should match with Government ID',
+                      helperStyle: TextStyle(
+                        fontSize: 15,
+                      ),
+                      labelText: 'Last Name',
+                      labelStyle: TextStyle(color: Colors.grey.withOpacity(1)),
+                      filled: true,
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      fillColor: Colors.grey.shade300,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade500),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey.shade800),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                  ],
+                  ),
                 ),
-                SizedBox(height: 20),
                 Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: InputTextWidget('Email', false, _emailController)),
@@ -145,7 +154,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child:
                       InputTextWidget('Passsword', true, _passwordController),
                 ),
-                SizedBox(height: 70),
+                SizedBox(height: 20),
                 Button(
                   text: 'Register',
                   onPressed: () {
