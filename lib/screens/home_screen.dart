@@ -1,4 +1,6 @@
 import 'package:ecohub/screens/feature_screens/advisory_screen/advisory_screen.dart';
+import 'package:ecohub/screens/feature_screens/blog_screen/blog_form_screen.dart';
+import 'package:ecohub/screens/feature_screens/blog_screen/blog_screen.dart';
 import 'package:ecohub/screens/feature_screens/plant_disease_detection_screen/tflite_model.dart';
 import 'package:ecohub/screens/news_screen/news_screen.dart';
 import 'package:ecohub/screens/feature_screens/weather_updates_screen/weather_page.dart';
@@ -11,8 +13,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.orangeAccent,
       appBar: AppBar(
+        backgroundColor: Colors.orangeAccent,
         actions: [
           Row(
             children: [
@@ -50,44 +53,24 @@ class HomeScreen extends StatelessWidget {
             child: Icon(Icons.person, size: 30, color: Colors.black),
           ),
         ),
-        backgroundColor: Colors.grey[300],
         elevation: 0,
         title: const Text(
           'Eco Hub',
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              width: double.infinity,
-              height: 200,
-              decoration: BoxDecoration(
-                //color: Colors.amber,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: OverflowBox(
-                maxHeight: 200,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Transform.translate(
-                    offset: Offset(-10, 30),
-                    child: Image.asset(
-                      'assets/logo.jpeg',
-                      color: Colors.grey[300]!.withOpacity(1),
-                      colorBlendMode: BlendMode.modulate,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+          SizedBox(
+            height: 60,
           ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 5, right: 20),
+          //   child: Image.asset('assets/logo.jpeg',
+          //   width: 300,
+          //   height: 300,),
+          // ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(9.0),
@@ -115,15 +98,15 @@ class HomeScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey.shade600,
-                                    spreadRadius: 1,
+                                    color: Colors.grey.shade900,
+                                    spreadRadius: 0.5,
                                     blurRadius: 15,
                                     offset: Offset(
                                         5, 5), // changes position of shadow
                                   ),
                                   BoxShadow(
                                     color: Colors.white,
-                                    spreadRadius: 1,
+                                    spreadRadius: 0.5,
                                     blurRadius: 15,
                                     offset: Offset(-6, -6),
                                   )
@@ -173,15 +156,15 @@ class HomeScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey.shade600,
-                                    spreadRadius: 1,
+                                    color: Colors.grey.shade900,
+                                    spreadRadius: 0.5,
                                     blurRadius: 15,
                                     offset: Offset(
                                         5, 5), // changes position of shadow
                                   ),
                                   BoxShadow(
                                     color: Colors.white,
-                                    spreadRadius: 1,
+                                    spreadRadius: 0.5,
                                     blurRadius: 15,
                                     offset: Offset(-6, -6),
                                   )
@@ -231,15 +214,15 @@ class HomeScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey.shade600,
-                                    spreadRadius: 1,
+                                    color: Colors.grey.shade900,
+                                    spreadRadius: 0.5,
                                     blurRadius: 15,
                                     offset: Offset(
                                         5, 5), // changes position of shadow
                                   ),
                                   BoxShadow(
                                     color: Colors.white,
-                                    spreadRadius: 1,
+                                    spreadRadius: 0.5,
                                     blurRadius: 15,
                                     offset: Offset(-6, -6),
                                   )
@@ -289,15 +272,15 @@ class HomeScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.grey.shade600,
-                                    spreadRadius: 1,
+                                    color: Colors.grey.shade900,
+                                    spreadRadius: 0.5,
                                     blurRadius: 15,
                                     offset: Offset(
                                         5, 5), // changes position of shadow
                                   ),
                                   BoxShadow(
                                     color: Colors.white,
-                                    spreadRadius: 1,
+                                    spreadRadius: 0.5,
                                     blurRadius: 15,
                                     offset: Offset(-6, -6),
                                   )
@@ -332,6 +315,17 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Blogs!',
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BlogFormScreen()),
+          );
+        },
+        child: Icon(Icons.article_outlined),
+        backgroundColor: Colors.white,
       ),
     );
   }
