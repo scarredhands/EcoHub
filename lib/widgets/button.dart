@@ -10,9 +10,9 @@ class Button extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
-        width: 120,
+        // width: 120,
         padding: EdgeInsets.all(15),
-        margin: EdgeInsets.symmetric(horizontal: 5),
+        margin: EdgeInsets.only(left: 16, right: 16),
         decoration: BoxDecoration(
             color: Colors.black, borderRadius: BorderRadius.circular(8)),
         child: Center(
@@ -20,7 +20,7 @@ class Button extends StatelessWidget {
           text,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 16,
+            fontSize: 17,
             fontWeight: FontWeight.bold,
           ),
         )),
