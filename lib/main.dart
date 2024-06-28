@@ -1,7 +1,5 @@
 import 'package:ecohub/onboarding_screen.dart';
 import 'package:ecohub/screens/home_screen.dart';
-import 'package:ecohub/services/auth_wrapper.dart';
-import 'package:ecohub/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

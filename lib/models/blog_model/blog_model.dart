@@ -18,8 +18,8 @@ class Blog {
   factory Blog.fromMap(Map<String, dynamic> data, String documentId) {
     return Blog(
       id: documentId,
-      title: data['title'],
-      content: data['content'],
+      title: data['title'] ?? '',
+      content: data['content'] ?? '',
       date: (data['date'] as Timestamp).toDate(),
       imageUrl: data['imageUrl'],
     );
