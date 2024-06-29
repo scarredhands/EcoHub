@@ -1,9 +1,8 @@
 import 'package:ecohub/screens/feature_screens/advisory_screen/advisory_screen.dart';
-import 'package:ecohub/screens/feature_screens/blog_screen/blog_form_screen.dart';
 import 'package:ecohub/screens/feature_screens/blog_screen/blog_screen.dart';
 import 'package:ecohub/screens/feature_screens/plant_disease_detection_screen/tflite_model.dart';
-import 'package:ecohub/screens/news_screen/news_screen.dart';
 import 'package:ecohub/screens/feature_screens/weather_updates_screen/weather_page.dart';
+import 'package:ecohub/screens/news_screen/news_screen.dart';
 import 'package:ecohub/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,26 +15,6 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.orangeAccent,
       appBar: AppBar(
         backgroundColor: Colors.orangeAccent,
-        actions: [
-          Row(
-            children: [
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 4,
-                      )),
-                  child: Icon(Icons.settings, size: 30, color: Colors.black),
-                ),
-              ),
-            ],
-          )
-        ],
         leading: InkWell(
           onTap: () {
             Navigator.push(context,

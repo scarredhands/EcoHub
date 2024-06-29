@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:ecohub/screens/authentication_screens/login_screen.dart';
-import 'package:ecohub/screens/settings_screen.dart';
 import 'package:ecohub/widgets/button.dart';
 import 'package:ecohub/widgets/input_text_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -87,6 +86,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
+      appBar: AppBar(
+      backgroundColor: Colors.lightBlueAccent,),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
