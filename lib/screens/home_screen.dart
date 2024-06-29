@@ -321,7 +321,7 @@ class HomeScreen extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => BlogFormScreen()),
+            MaterialPageRoute(builder: (context) => BlogScreen()),
           );
         },
         child: Icon(Icons.article_outlined),
