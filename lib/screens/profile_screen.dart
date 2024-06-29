@@ -87,7 +87,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
-      backgroundColor: Colors.lightBlueAccent,),
+        backgroundColor: Colors.lightBlueAccent,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
