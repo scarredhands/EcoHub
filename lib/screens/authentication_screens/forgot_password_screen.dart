@@ -100,9 +100,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(5.0),
               child: Container(
-                height: 42,
+                height: 48,
                 margin: EdgeInsets.only(left: 15, right: 15),
                 decoration: BoxDecoration(
                   color: Colors.black,
@@ -119,6 +119,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           'Reset Password',
                           style: TextStyle(
                             color: Colors.white,
+                            fontSize: 16,
                           ),
                         ),
                 ),

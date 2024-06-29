@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecohub/models/blog_model/blog_model.dart';
+import 'package:ecohub/screens/feature_screens/blog_screen/blog_screen.dart';
 import 'package:flutter/material.dart';
 
 class BlogFormScreen extends StatefulWidget {
@@ -57,7 +58,31 @@ class _BlogFormScreenState extends State<BlogFormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Create Blog')),
+      backgroundColor: Colors.amberAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.amberAccent,
+        title: Text(
+          "Blogs",
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BlogScreen(),
+                    ));
+              },
+              icon: Icon(
+                Icons.notes,
+                color: Colors.black,
+              ))
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -154,14 +179,17 @@ class _BlogFormScreenState extends State<BlogFormScreen> {
                     padding: EdgeInsets.all(10),
                     margin: EdgeInsets.symmetric(horizontal: 5),
                     decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                      gradient: LinearGradient(colors: [
+                        Colors.pink, Colors.purple
+                      ]),
+                        
                         borderRadius: BorderRadius.circular(8)),
                     child: Center(
                         child: Text(
                       'Submit',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     )),

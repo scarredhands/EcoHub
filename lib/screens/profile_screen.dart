@@ -85,12 +85,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.lightBlueAccent,
+      appBar: AppBar(
+      backgroundColor: Colors.lightBlueAccent,),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(height: 50),
               Stack(
                 children: [
                   CircleAvatar(
@@ -118,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(15.0),
                 child: TextField(
                   controller: _bioController,
                   maxLines: 2,
@@ -136,22 +139,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(7.0),
+                padding: const EdgeInsets.only(
+                    left: 14, right: 14, bottom: 10, top: 5),
                 child: InputTextWidget('Name', false, _nameController),
               ),
               Padding(
-                padding: const EdgeInsets.all(7.0),
+                padding: const EdgeInsets.only(
+                    left: 14, right: 14, bottom: 10, top: 5),
                 child: InputTextWidget('Email', false, _emailController),
               ),
               Padding(
-                padding: const EdgeInsets.all(7.0),
+                padding: const EdgeInsets.only(
+                    left: 14, right: 14, bottom: 10, top: 5),
                 child: InputTextWidget('Phone', false, _phoneController),
               ),
               Padding(
-                padding: const EdgeInsets.all(7.0),
+                padding: const EdgeInsets.only(
+                    left: 14, right: 14, bottom: 10, top: 5),
                 child: InputTextWidget('Password', true, _passwordController),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 8),
               Button(
                   text: 'Save Profile',
                   onPressed: () {
@@ -160,7 +167,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       content: Text('Profile Updated'),
                     ));
                   }),
-              SizedBox(height: 13),
+              SizedBox(height: 15),
               Button(
                   text: 'Logout',
                   onPressed: () {
