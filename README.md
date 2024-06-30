@@ -33,7 +33,7 @@ flutter pub get
 - Place these files in the appropriate directories in your Flutter project.
 
 5. Run the app:
-6. flutter run
+    flutter run
 
 ## Deployment
 
@@ -54,6 +54,4 @@ The app is currently not deployed to any public app stores. For organizations lo
 
 For any queries or support, please contact - Yatika (email- j.yatika@iitg.ac.in) or Aman (email- aman.ajad@iitg.ac.in).
 
-## License
 
-license is given in the root directory of the project. (named LICENSE)
