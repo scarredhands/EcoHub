@@ -1,7 +1,9 @@
 # ecohub
 An initiative towards a greener future.
 
-PRESENTATION-https://www.canva.com/design/DAGHSRiFVRs/SR74Lbef8n56stodHg_E2w/edit?utm_content=DAGHSRiFVRs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+[PRESENTATION](https://www.canva.com/design/DAGHSRiFVRs/SR74Lbef8n56stodHg_E2w/edit?utm_content=DAGHSRiFVRs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 
 ## main features-
 1. plant disease detection using machine learning.
